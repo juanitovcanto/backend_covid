@@ -4,19 +4,19 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
-import javax.xml.bind.annotation.XmlRootElement;
 
 
 
 @Entity
-@XmlRootElement
 @Table(name = "Regiones", uniqueConstraints = @UniqueConstraint(columnNames = "id"))
 public class Regiones implements Serializable{
     private static final long serialVersionUID = 1L;
@@ -24,29 +24,29 @@ public class Regiones implements Serializable{
 
 
     @Id
-    private Long id;
+    private long id;
 
     @Column(name = "Nombre")
     private String nombre;
 
-    @OneToMany(mappedBy = "region",orphanRemoval = true)
+    @OneToMany(mappedBy = "region",fetch = FetchType.LAZY)
     private List<Comunas> comunas = new ArrayList<>();
     
     public Regiones(){
-        
+
     }
 
-    public Regiones(Long id, String nombre, List<Comunas> comunas) {
+    public Regiones(long id, String nombre, List<Comunas> comunas) {
         this.id = id;
         this.nombre = nombre;
         this.comunas = comunas;
     }
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 

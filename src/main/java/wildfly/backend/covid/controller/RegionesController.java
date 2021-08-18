@@ -13,12 +13,14 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
+import javax.inject.Singleton;
 
 import wildfly.backend.covid.service.RegionesService;
 import wildfly.backend.covid.DTO.RegionesDTO;
 
 @Path("/regiones")
 @RequestScoped
+@Singleton
 public class RegionesController {
     @Inject
     RegionesService regionesService;

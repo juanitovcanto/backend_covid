@@ -4,18 +4,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-
 public class RegionesDTO {
 
-    public static final String ID_ALIAS = "r_id";
-     
-    public static final String NOMBRE_ALIAS = "r_nombre";
 
     private long id;
     private String nombre;
     private List<ComunasDTO> comunas = new ArrayList<>();
     
     
+    public RegionesDTO(){
+
+    }
 
     public RegionesDTO(long id, String nombre, List<ComunasDTO> comunas) {
         this.id = id;

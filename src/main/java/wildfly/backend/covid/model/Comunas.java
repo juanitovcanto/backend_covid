@@ -1,6 +1,7 @@
 package wildfly.backend.covid.model;
 
 import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -10,16 +11,14 @@ import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import javax.persistence.ManyToOne;
 
-import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
-@XmlRootElement
 @Table(name = "Comunas", uniqueConstraints = @UniqueConstraint(columnNames = "id"))
 public class Comunas implements Serializable{
     private static final long serialVersionUID = 1L;
 
     @Id
-    private Long id;
+    private long id;
 
     @Column(name = "Nombre")
     private String nombre;
@@ -32,17 +31,17 @@ public class Comunas implements Serializable{
         
     }
 
-    public Comunas(Long id, String nombre, Regiones region) {
+    public Comunas(long id, String nombre, Regiones region) {
         this.id = id;
         this.nombre = nombre;
         this.region = region;
     }
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 

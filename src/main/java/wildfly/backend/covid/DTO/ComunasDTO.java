@@ -5,7 +5,7 @@ package wildfly.backend.covid.DTO;
 public class ComunasDTO {
 
 
-    private Long id;
+    private long id;
     private String nombre;
 
     public ComunasDTO(){
@@ -14,18 +14,18 @@ public class ComunasDTO {
 
 
     
-    public ComunasDTO(Long id, String nombre) {
+    public ComunasDTO(long id, String nombre) {
         this.id = id;
         this.nombre = nombre;
     }
 
 
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 

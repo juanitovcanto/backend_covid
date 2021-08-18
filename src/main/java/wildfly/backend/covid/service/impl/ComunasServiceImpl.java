@@ -17,7 +17,7 @@ public class ComunasServiceImpl implements ComunasService{
 
     @Context
     UriInfo uriInfo;
-
+    
     @Override
     public List<ComunasDTO> findByRegion(Long idRegion){
         TypedQuery<ComunasDTO> comunas = em.createQuery("Select new wildfly.backend.covid.DTO.ComunasDTO(c.id ,c.nombre ,r.id )" +
