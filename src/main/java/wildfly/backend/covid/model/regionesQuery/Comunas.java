@@ -28,6 +28,10 @@ public class Comunas implements Serializable{
     @JoinColumn(name="id_region")
     private Regiones region;
 
+    
+    public Comunas() {
+    }
+
     public Comunas(long id, String nombre, Regiones region) {
         this.id = id;
         this.nombre = nombre;

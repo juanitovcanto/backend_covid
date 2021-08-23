@@ -1,27 +1,27 @@
 package wildfly.backend.covid.DTO;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class CasosNuevosDTO {
 
-    private Date fecha;
+    private LocalDate fecha;
     private int cantidad;
 
     public CasosNuevosDTO(){
 
     }
     
-    public CasosNuevosDTO( Date fecha, int cantidad) {
+    public CasosNuevosDTO( LocalDate fecha, int cantidad) {
         this.fecha = fecha;
         this.cantidad = cantidad;
     }
 
 
-    public Date getFecha() {
+    public LocalDate getFecha() {
         return fecha;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(LocalDate fecha) {
         this.fecha = fecha;
     }
 

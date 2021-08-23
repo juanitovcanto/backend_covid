@@ -1,6 +1,8 @@
 package wildfly.backend.covid.model.casosComunasQuery;
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDate;
+
+
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -25,7 +27,7 @@ public class CasosContagio implements Serializable {
     private ComunasCC comuna;
 
     @Column(name = "Fecha")
-    private Date fecha;
+    private LocalDate fecha;
 
     @Column(name = "Cantidad")
     private int cantidad;
@@ -35,7 +37,7 @@ public class CasosContagio implements Serializable {
 
     }
     
-    public CasosContagio( ComunasCC comuna, Date fecha, int cantidad) {
+    public CasosContagio( ComunasCC comuna, LocalDate fecha, int cantidad) {
         this.comuna = comuna;
         this.fecha = fecha;
         this.cantidad = cantidad;
@@ -50,11 +52,11 @@ public class CasosContagio implements Serializable {
         this.comuna = comuna;
     }
 
-    public Date getFecha() {
+    public LocalDate getFecha() {
         return fecha;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(LocalDate fecha) {
         this.fecha = fecha;
     }
 
