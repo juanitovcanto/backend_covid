@@ -1,20 +1,20 @@
-package wildfly.backend.covid.model;
-
+package wildfly.backend.covid.model.casosComunasQuery;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 
 @Entity
 @Table(name = "Comunas", uniqueConstraints = @UniqueConstraint(columnNames = "id"))
-public class Comunas implements Serializable{
+public class ComunasCC implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
@@ -23,18 +23,16 @@ public class Comunas implements Serializable{
     @Column(name = "Nombre")
     private String nombre;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="id_region")
-    private Regiones region;
+    @OneToMany(mappedBy = "comuna",fetch = FetchType.LAZY)
+    private List<CasosContagio> casosContagio = new ArrayList<>();
 
-    public Comunas(){
-        
+    public ComunasCC() {
     }
 
-    public Comunas(long id, String nombre, Regiones region) {
+    public ComunasCC(long id, String nombre, List<CasosContagio> casosContagio) {
         this.id = id;
         this.nombre = nombre;
-        this.region = region;
+        this.casosContagio = casosContagio;
     }
 
     public long getId() {
@@ -53,13 +51,16 @@ public class Comunas implements Serializable{
         this.nombre = nombre;
     }
 
-    public Regiones getRegion() {
-        return region;
+    public List<CasosContagio> getCasosContagio() {
+        return casosContagio;
     }
 
-    public void setRegion(Regiones region) {
-        this.region = region;
+    public void setCasosContagio(List<CasosContagio> casosContagio) {
+        this.casosContagio = casosContagio;
     }
 
-   
+
+
+
+
 }

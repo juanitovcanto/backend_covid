@@ -2,12 +2,11 @@ package wildfly.backend.covid.Mapper;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.ObjIntConsumer;
 
 import wildfly.backend.covid.DTO.ComunasDTO;
 import wildfly.backend.covid.DTO.RegionesDTO;
-import wildfly.backend.covid.model.Comunas;
-import wildfly.backend.covid.model.Regiones;
+import wildfly.backend.covid.model.regionesQuery.Comunas;
+import wildfly.backend.covid.model.regionesQuery.Regiones;
 
 public class RegionesMapper {
     

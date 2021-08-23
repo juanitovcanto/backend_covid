@@ -1,6 +1,5 @@
 package wildfly.backend.covid.service.impl;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -15,7 +14,7 @@ import javax.ws.rs.core.UriInfo;
 
 import wildfly.backend.covid.DTO.RegionesDTO;
 import wildfly.backend.covid.Mapper.RegionesMapper;
-import wildfly.backend.covid.model.Regiones;
+import wildfly.backend.covid.model.regionesQuery.Regiones;
 import wildfly.backend.covid.service.RegionesService;
 
 public class RegionesServiceImpl implements RegionesService{
@@ -34,7 +33,7 @@ public class RegionesServiceImpl implements RegionesService{
         CriteriaQuery<Object> criteriaQuery = criteriaBuilder.createQuery();
         Root<Regiones> from = criteriaQuery.from(Regiones.class);
 
-        CriteriaQuery<Object> select = criteriaQuery.multiselect(from);
+        CriteriaQuery<Object> select = criteriaQuery.select(from);
         
         TypedQuery<Object> typedQuery = entitymanager.createQuery(select);
 
@@ -44,7 +43,9 @@ public class RegionesServiceImpl implements RegionesService{
         List<RegionesDTO> resultado = RegionesMapper.convertToDTO(resultList);
 
         
-        
+        entitymanager.close( );
+        emfactory.close( );
+
         return resultado;
 
     }

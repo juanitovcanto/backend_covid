@@ -1,4 +1,4 @@
-package wildfly.backend.covid.model;
+package wildfly.backend.covid.model.regionesQuery;
 
 import java.io.Serializable;
 import java.util.ArrayList;

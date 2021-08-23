@@ -22,8 +22,11 @@
    <persistence-unit name="primary">
       <jta-data-source>java:/mariadbds</jta-data-source>
 
-      <class>wildfly.backend.covid.model.Regiones</class>
-      <class>wildfly.backend.covid.model.Comunas</class>
+      <class>wildfly.backend.covid.model.regionesQuery.Regiones</class>
+      <class>wildfly.backend.covid.model.regionesQuery.Comunas</class>
+      <class>wildfly.backend.covid.model.casosComunasQuery.CasosContagio</class>
+      <class>wildfly.backend.covid.model.casosComunasQuery.ComunasCC</class>
+
 
    </persistence-unit>
 </persistence>
