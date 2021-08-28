@@ -36,7 +36,7 @@ public class CasosContagioController {
         }
         List<CasosNuevosComunaDTO> listaComunasQuery = casosContagioService.casosNuevosPorComuna(idComuna);
         if (listaComunasQuery == null){
-            return Response.status(Response.Status.NOT_FOUND).entity("comuna no encontrada").type(MediaType.APPLICATION_JSON).build();
+            return Response.status(Response.Status.NOT_FOUND).entity("comuna no encontrada").build();
         }
         return Response.ok(listaComunasQuery).build();
     }
