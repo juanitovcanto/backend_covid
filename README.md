@@ -1,5 +1,5 @@
 Proyecto Backend de casos de Coronavirus según informe epidemiológico del Ministerio De Salud de Chile 
-utilizando JAX-RS (Java API for RESTful Web Services) + java persistence API + Criteria API
+utilizando JAX-RS (Java API for RESTful Web Services) + java persistence API + Hibernate + Criteria API
 en un servidor de aplicaciones Wildfly
 
 
