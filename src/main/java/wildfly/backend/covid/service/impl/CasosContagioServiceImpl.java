@@ -29,22 +29,32 @@ public class CasosContagioServiceImpl implements CasosContagioService{
         EntityManager entitymanager = emfactory.createEntityManager( );
         CriteriaBuilder criteriaBuilder = entitymanager.getCriteriaBuilder();
         CriteriaQuery<Object> criteriaQuery = criteriaBuilder.createQuery();
-        Root<ComunasCC> from = criteriaQuery.from(ComunasCC.class);
 
-        CriteriaQuery<Object> select = criteriaQuery.select(from);
-
-        select.where(criteriaBuilder.equal(from.get("id"), idComuna));
-
-        TypedQuery<Object> typedQuery = entitymanager.createQuery(select);
-
-        List<Object> resultList = typedQuery.getResultList();
-
-        List<CasosNuevosComunaDTO> resultado = CasosContagioMapper.convertToDTO(resultList);
         
-        entitymanager.close( );
-        emfactory.close( );
+        try{
 
-        return resultado;
+            Root<ComunasCC> from = criteriaQuery.from(ComunasCC.class);
+            CriteriaQuery<Object> select = criteriaQuery.select(from);
+            select.where(criteriaBuilder.equal(from.get("id"), idComuna));
+            TypedQuery<Object> typedQuery = entitymanager.createQuery(select);
+            List<Object> resultList = typedQuery.getResultList();
+    
+            if (resultList.isEmpty()){
+                return null;
+            }
+            
+            List<CasosNuevosComunaDTO> resultado = CasosContagioMapper.convertToDTO(resultList);
+            
+            return resultado;
+
+        }
+        finally{
+            entitymanager.close( );
+            emfactory.close( );
+        }
+       
+
+
 
 
     }
