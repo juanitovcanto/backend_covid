@@ -2,7 +2,6 @@ package wildfly.backend.covid.Mapper;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import wildfly.backend.covid.DTO.ComunasDTO;
 import wildfly.backend.covid.DTO.RegionesDTO;
 import wildfly.backend.covid.model.regionesQuery.Comunas;

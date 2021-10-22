@@ -1,7 +1,6 @@
 package wildfly.backend.covid.service.impl;
 
 import java.util.List;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -11,7 +10,6 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
-
 import wildfly.backend.covid.DTO.CasosNuevosComunaDTO;
 import wildfly.backend.covid.Mapper.CasosContagioMapper;
 import wildfly.backend.covid.model.casosComunasQuery.ComunasCC;
