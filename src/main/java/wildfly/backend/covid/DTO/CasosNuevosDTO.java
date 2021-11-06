@@ -1,9 +1,17 @@
 package wildfly.backend.covid.DTO;
 
+import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.Date;
 
-public class CasosNuevosDTO {
+import javax.json.bind.annotation.JsonbDateFormat;
 
+
+
+public class CasosNuevosDTO implements Serializable{
+    private static final long serialVersionUID = 1L;
+
+    
     private LocalDate fecha;
     private int cantidad;
 

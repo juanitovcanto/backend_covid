@@ -1,16 +1,19 @@
 package wildfly.backend.covid.model.casosComunasQuery;
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.Date;
 
-
-
+import javax.json.bind.annotation.JsonbDateFormat;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.persistence.UniqueConstraint;
+
 
 import javax.persistence.ManyToOne;
 
@@ -26,7 +29,7 @@ public class CasosContagio implements Serializable {
     @JoinColumn(name="id_comuna")
     private ComunasCC comuna;
 
-    @Column(name = "Fecha")
+    @Column(name = "Fecha",columnDefinition = "DATE")
     private LocalDate fecha;
 
     @Column(name = "Cantidad")

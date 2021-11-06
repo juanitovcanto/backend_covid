@@ -1,6 +1,9 @@
 package wildfly.backend.covid.service.impl;
 
 import java.util.List;
+
+import javax.ejb.Local;
+import javax.ejb.Stateful;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -15,6 +18,8 @@ import wildfly.backend.covid.Mapper.CasosContagioMapper;
 import wildfly.backend.covid.model.casosComunasQuery.ComunasCC;
 import wildfly.backend.covid.service.CasosContagioService;
 
+@Stateful
+@Local(CasosContagioService.class)
 public class CasosContagioServiceImpl implements CasosContagioService{
 
     @Context

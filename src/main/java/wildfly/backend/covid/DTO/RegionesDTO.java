@@ -1,12 +1,13 @@
 package wildfly.backend.covid.DTO;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class RegionesDTO {
+public class RegionesDTO implements Serializable{
 
-
+    private static final long serialVersionUID = 1L;
     private long id;
     private String nombre;
     private List<ComunasDTO> comunas = new ArrayList<>();

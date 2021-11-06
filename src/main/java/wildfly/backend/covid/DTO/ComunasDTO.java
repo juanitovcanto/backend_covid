@@ -1,9 +1,10 @@
 package wildfly.backend.covid.DTO;
 
+import java.io.Serializable;
 
+public class ComunasDTO implements Serializable{
 
-public class ComunasDTO {
-
+    private static final long serialVersionUID = 1L;
 
     private long id;
     private String nombre;

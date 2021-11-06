@@ -6,3 +6,4 @@ en un servidor de aplicaciones Wildfly
 Los datos son sacados de los repositorios del Ministerio De Ciencias https://www.minciencia.gob.cl/covid19/
 
 
+Proyecto de lógica de negocio EJB

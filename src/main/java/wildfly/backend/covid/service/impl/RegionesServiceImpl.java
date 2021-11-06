@@ -1,7 +1,10 @@
 package wildfly.backend.covid.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import javax.ejb.Local;
+import javax.ejb.Singleton;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -12,11 +15,14 @@ import javax.persistence.criteria.Root;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 
+
 import wildfly.backend.covid.DTO.RegionesDTO;
 import wildfly.backend.covid.Mapper.RegionesMapper;
 import wildfly.backend.covid.model.regionesQuery.Regiones;
 import wildfly.backend.covid.service.RegionesService;
 
+@Singleton
+@Local(RegionesService.class)
 public class RegionesServiceImpl implements RegionesService{
 
 
@@ -39,13 +45,14 @@ public class RegionesServiceImpl implements RegionesService{
 
         List<Object> resultList = typedQuery.getResultList();
 
-
-        List<RegionesDTO> resultado = RegionesMapper.convertToDTO(resultList);
+        List<RegionesDTO> resultado = new ArrayList<>();
+        resultado = RegionesMapper.convertToDTO(resultList);
 
         
         entitymanager.close( );
         emfactory.close( );
 
+        
         return resultado;
 
     }
